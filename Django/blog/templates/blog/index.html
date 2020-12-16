@@ -5,5 +5,21 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Blog Home Page</h1>
+    <div style="display: flex; flex-wrap: wrap; margin: 3rem">
+        <div style="flex: 0 0 100%;">
+            <h1>Blog Home Page</h1>
+        </div>
+        {% for post in posts %}
+            <div style="flex: 0 0 20%; margin: 2rem 1rem 0 0; border: 1px solid white;
+                background: white; padding: 0.5rem; border-radius: 5px;">
+                <img style="width: 100%;" src="{{ post.post_image.url }}" alt="image coming soon">
+                <small style="font-size: 0.8rem; text-transform: capitalize;">
+                    <i class="fas fa-user" style="color: grey;">{{ post.author }}</i>
+                </small>
+                <small style="font-size: 0.8rem;">on {{ post.date_posted|date:"F, d, Y"}}</small>
+                <h4 style="margin-top: 1rem;">{{ post.title }}</h4>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">{{ post.content|truncatechars:150 }}<small>Read More</small></p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
