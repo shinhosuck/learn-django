@@ -5,31 +5,67 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="row-posts">
-        <div class="title-latest">
-            <h2>Latest Post</h2>
-        </div>
-        <div class="col-latest">
-            <div class="container-items">
-                <img class="img-latest" src="{{ latest_post.post_image.url }}" alt="image coming soon">
-                <div class="container-text">
-                    <small class="small-author">
-                        <i class="fas fa-user font-awesome-user"></i> {{ latest_post.author }}
+<style>
+    .post-latest {
+        flex: 0 0 90%; 
+        display: flex; 
+        flex-wrap: wrap; 
+        align-items: flex-end;
+        margin-bottom: 2rem; 
+        color: white; 
+        background:rgba(174, 126, 4, 0.7);
+        border-radius: 5px; 
+        padding: 0.5rem;
+    }
+    .post-latest:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .top-stories {
+        margin: 1rem 1rem 0 0; 
+        flex: 0 0 20%; 
+        padding: 0.5rem; 
+        border-radius: 5px;
+        background:rgba(174, 126, 4, 0.7); 
+        color: white;
+    }
+    .top-stories:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+</style>
+<div style="background: rgba(0, 0, 0, 0.6); min-height: 100vh;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 0 5rem;">
+        <div style="flex: 0 0 100%; display: flex; flex-wrap: wrap; justify-content: center;
+            margin-top: 5rem;">
+            <h1 style= "flex: 0 0 100%; text-align: center; color: white; margin-bottom: 2rem;
+                    letter-spacing: 0.1rem;">
+                Latest
+            </h1>
+            {% for post in latest_post %}
+            <div class="post-latest">
+                <img src="{{ post.post_image.url }}" width="300px" height="200px" alt="">
+                <div style="flex: 0 0 65%; margin-left: 1rem;">
+                    <h3 style="margin-bottom: 0.5rem; ">{{ post.title}}</h3>
+                    <small style="font-size: 0.9rem;">
+                        <i class="fas fa-user" style="color: grey; font-size: 1.2rem;"></i>
+                        {{ post.author }}
                     </small>
-                    <small class="small-date-posted">
-                        <i class="fas fa-calendar font-awesome-calendar"></i>
-                        {{ latest_post.date_posted|date:"N, d, Y"}}
+                    <small style="margin-left: 0.5rem; font-size: 0.9rem;">
+                        <i class="fas fa-calendar" style="color: grey; font-size: 1.2rem;"></i>
+                        {{ post.date_posted|date:"N, d, Y"}}
                     </small>
-                    <h3>{{ latest_post.title }}</h3>
-                    <p>{{ latest_post.content|truncatechars:500 }}<small>Read More</small></p>
+                    <p style=" margin-top: 0.5rem; font-size: 0.9rem;">{{ post.content|truncatechars:600 }}</p>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        <!-- <div style="display: flex; margin-top:1rem; margin-left: 3rem;">
+        <div style="display: flex; margin-top:3rem; flex-wrap: wrap; flex: 0 0 90%; justify-content: center;">
+            <h1 style= "flex: 0 0 100%; text-align: center; color: white; margin-bottom: 1rem;
+                    letter-spacing: 0.1rem;">
+                Top Stories
+            </h1>
             {% for post in posts%}
-            <div style="margin: 1rem 1rem 0 0; flex: 0 0 20%; padding: 0.5rem; border-radius: 5px;
-                border: 1px solid rgb(54, 54, 54); color: white">
-                <img style="width: 100%;" src="{{ post.post_image.url }}" alt="image coming soon">
+            <div class="top-stories">
+                <img style="width: 200px; height:150px" src="{{ post.post_image.url }}" alt="image coming soon">
                 <small style="font-size: 0.8rem;">
                     <i class="fas fa-user" style="color: grey; font-size: 1.2rem;"></i> {{ post.author }}
                 </small>
@@ -41,8 +77,10 @@
                 <p style="margin-top: 0.5rem; font-size: 0.9rem;">{{ post.content|truncatechars:100 }}<small>Read More</small></p>
             </div>
             {% endfor %}
-        </div> -->
+        </div>
     </div>
+</div>
 {% endblock content %}
+    
         
         
