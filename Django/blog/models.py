@@ -16,8 +16,8 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         img = Image.open(self.post_image.path)
-        if img.width > 500 and img.height > 500:
-            new_img = (400, 400)
+        if img.width > 600 and img.height > 600:
+            new_img = (500, 500)
             img.thumbnail(new_img)
             img.save(self.post_image.path)
 
