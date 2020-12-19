@@ -13,7 +13,7 @@
         align-items: flex-end;
         margin-bottom: 2rem; 
         color: white; 
-        background:rgba(174, 126, 4, 0.7);
+        background:rgba(174, 126, 4, 0.2);
         border-radius: 5px; 
         padding: 0.5rem;
     }
@@ -22,7 +22,7 @@
     }
     .top-stories {
         margin: 1rem 1rem 0 0; 
-        flex: 0 0 20%; 
+        flex: 0 0 10%; 
         padding: 0.5rem; 
         border-radius: 5px;
         background:rgba(174, 126, 4, 0.7); 
@@ -32,7 +32,7 @@
         background: rgba(0, 0, 0, 0.5);
     }
 </style>
-<div style="background: rgba(0, 0, 0, 0.6); min-height: 100vh;">
+<div style="background: rgba(0, 0, 0, 0.7); min-height: 100vh;">
     <div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 0 5rem;">
         <div style="flex: 0 0 100%; display: flex; flex-wrap: wrap; justify-content: center;
             margin-top: 5rem;">
@@ -53,6 +53,9 @@
                         <i class="fas fa-calendar" style="color: grey; font-size: 1.2rem;"></i>
                         {{ post.date_posted|date:"N, d, Y"}}
                     </small>
+                    <a href="#" style="margin-left: 0.5rem; font-size: 0.9rem;">
+                        <i class="fas fa-thumbs-up" style="color: grey; font-size: 1.2rem;"></i>
+                    </a>
                     <p style=" margin-top: 0.5rem; font-size: 0.9rem;">{{ post.content|truncatechars:600 }}</p>
                 </div>
             </div>
@@ -65,14 +68,17 @@
             </h1>
             {% for post in posts%}
             <div class="top-stories">
-                <img style="width: 200px; height:150px" src="{{ post.post_image.url }}" alt="image coming soon">
+                <img style="width: 300px; height:200px" src="{{ post.post_image.url }}" alt="image coming soon">
                 <small style="font-size: 0.8rem;">
-                    <i class="fas fa-user" style="color: grey; font-size: 1.2rem;"></i> {{ post.author }}
+                    <i class="fas fa-user" style="color: grey; font-size: 1.1rem;"></i> {{ post.author }}
                 </small>
                 <small style="font-size: 0.8rem; margin-left: 0.5rem;">
-                    <i class="fas fa-calendar" style="color: grey; font-size: 1.2rem;"></i>
+                    <i class="fas fa-calendar" style="color: grey; font-size: 1.1rem;"></i>
                     {{ post.date_posted|date:"N, d, Y"}}
                 </small>
+                <a href="#" style="margin-left: 0.5rem; font-size: 0.8rem;">
+                    <i class="fas fa-thumbs-up" style="color: grey; font-size: 1.1rem;"></i>
+                </a>
                 <h4 style="margin-top: 1rem;">{{ post.title }}</h4>
                 <p style="margin-top: 0.5rem; font-size: 0.9rem;">{{ post.content|truncatechars:100 }}<small>Read More</small></p>
             </div>

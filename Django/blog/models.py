@@ -24,3 +24,11 @@ class Post(models.Model):
     class Meta:
         ordering = ["-date_posted"]
 
+
+# class PostLike(models.Model):
+#     post_name = models.ForeignKey(Post, on_delete=models.CASCADE)
+#     likes = models.ManyToManyField(User)
+
+#     def __str__(self):
+#         return self.likes.count()
+

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from blog.models import Post
 
 
@@ -10,5 +10,7 @@ def index(request):
         "latest_post": latest_post
     }
     return render(request, "blog/index.html", context)
+
+
 
 
