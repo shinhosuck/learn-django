@@ -6,10 +6,31 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Register</h1>
-    <form action="#" method="Post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button>Submit</button>
-    </form>
+
+<style>
+    .register-form-row {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .register-form-col {
+        border: 1px solid blue;
+        background: brown;
+        color: white;
+        padding: 1rem;
+        margin: 1rem;
+        flex: 0 0 40%;
+    }
+</style>
+    <div class="register-form-row">
+        <div class="register-form-col">
+            <h2>Register Form</h2>
+            <form action="#" method="Post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-primary mt-2">Submit</button>
+            </form>
+        </div>
+    </div>
 {% endblock content %}

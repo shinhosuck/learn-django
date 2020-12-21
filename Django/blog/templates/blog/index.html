@@ -13,26 +13,29 @@
         align-items: flex-end;
         margin-bottom: 2rem; 
         color: white; 
-        background:rgba(174, 126, 4, 0.4);
-        border-radius: 5px; 
-        padding: 0.5rem;
+        background: rgba(51, 51, 153,  0.8);
+        /* border-radius: 5px;  */
+        /* padding: 0.5rem; */
     }
     .post-latest:hover {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.7);
     }
     .top-stories {
         margin: 1rem 1rem 0 0; 
         flex: 0 0 10%; 
-        padding: 0.5rem; 
-        border-radius: 5px;
-        background:rgba(174, 126, 4, 0.4); 
+        /* padding: 0.5rem; */
+        /* border-radius: 5px; */
+        background: rgba(51, 51, 153, 0.8); 
         color: white;
     }
     .top-stories:hover {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.7);
+    }
+    .p-margin-bottom {
+        margin-bottom: 0 !important;
     }
 </style>
-<div style="background: rgba(0, 0, 0, 0.6); min-height: 100vh;">
+<div style="min-height: 100vh;">
     <div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 0 5rem;">
         <div style="flex: 0 0 100%; display: flex; flex-wrap: wrap; justify-content: center;
             margin-top: 5rem;">
@@ -43,8 +46,8 @@
             {% for post in latest_post %}
             <div class="post-latest">
                 <img src="{{ post.post_image.url }}" width="300px" height="200px" alt="">
-                <div style="flex: 0 0 65%; margin-left: 1rem;">
-                    <h3 style="margin-bottom: 0.5rem; ">{{ post.title}}</h3>
+                <div style="flex: 0 0 65%; margin: 0.5rem 0.5rem 0.5rem 1rem;">
+                    <h4 style="margin-bottom: 0.5rem; color: rgb(255, 153, 0)">{{ post.title}}</h4>
                     <small style="font-size: 0.9rem;">
                         <i class="fas fa-user" style="color: grey; font-size: 1.2rem;"></i>
                         {{ post.author }}
@@ -56,9 +59,9 @@
                     <a href="#" style="margin-left: 0.5rem; font-size: 0.9rem;">
                         <i class="fas fa-thumbs-up" style="color: grey; font-size: 1.2rem;"></i>
                     </a>
-                    <p style=" margin-top: 0.5rem; font-size: 0.9rem;">
-                        {{ post.content|truncatechars:600 }}
-                        <a href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                    <p class="p-margin-bottom" style=" margin-top: 0.5rem; font-size: 0.9rem;">
+                        {{ post.content|truncatechars:500 }}
+                        <a style="color:rgb(255, 153, 0);" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
                     </p>
                 </div>
             </div>
@@ -72,21 +75,23 @@
             {% for post in posts%}
             <div class="top-stories">
                 <img style="width: 230px; height:130px" src="{{ post.post_image.url }}" alt="image coming soon">
-                <small style="font-size: 0.7rem;">
-                    <i class="fas fa-user" style="color: grey; font-size: 1rem;"></i> {{ post.author }}
-                </small>
-                <small style="font-size: 0.7rem; margin-left: 0.5rem;">
-                    <i class="fas fa-calendar" style="color: grey; font-size: 1rem;"></i>
-                    {{ post.date_posted|date:"N, d, Y"}}
-                </small>
-                <a href="#" style="margin-left: 0.5rem; font-size: 0.8rem;">
-                    <i class="fas fa-thumbs-up" style="color: grey; font-size: 1rem;"></i>
-                </a>
-                <h4 style="margin-top: 1rem;">{{ post.title }}</h4>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-                    {{ post.content|truncatechars:100 }}
-                    <a href="{% url 'blog:post-detail' post.pk %}">Read more</a>
-                </p>
+                <div style="margin: 0.5rem;">
+                    <small style="font-size: 0.7rem;">
+                        <i class="fas fa-user" style="color: grey; font-size: 1rem;"></i> {{ post.author }}
+                    </small>
+                    <small style="font-size: 0.7rem; margin-left: 0.5rem;">
+                        <i class="fas fa-calendar" style="color: grey; font-size: 1rem;"></i>
+                        {{ post.date_posted|date:"N, d, Y"}}
+                    </small>
+                    <a href="#" style="margin-left: 0.5rem; font-size: 0.8rem;">
+                        <i class="fas fa-thumbs-up" style="color: grey; font-size: 1rem;"></i>
+                    </a>
+                    <h4 style="margin-top: 0.5rem; color: rgb(255, 153, 0) ">{{ post.title|truncatechars:15 }}</h4>
+                    <p class="p-margin-bottom" style="margin-top: 0.5rem; font-size: 0.8rem;">
+                        {{ post.content|truncatechars:100 }}
+                        <a style="color:rgb(255, 153, 0);" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                    </p>
+                </div>
             </div>
             {% endfor %}
         </div>

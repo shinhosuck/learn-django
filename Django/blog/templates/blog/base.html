@@ -8,19 +8,61 @@
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
     {% block title %}
         <title></title>
     {% endblock title %}
 </head>
-<body>
-    <nav style="background:rgb(218, 184, 32)">
-        <h1>navbar</h1>
-    </nav>
-    <div class="bg-img">
-        {% block content %}
+<style>
+    .nav {
+        margin-bottom: 0 !important;
+        margin: 0 9rem;
+        display: flex; 
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .brand {
+        padding: 0 0.5rem;
+    }
+    .nav-item {
+        margin-left: 1rem; 
+        padding: 1.1rem 0.5rem;
+    }
+    .nav-item:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+    .brand:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+</style>
+<body class="bg-img">
+    <div style="background: rgba(0, 0, 0, 0.7); min-height: 100vh;">
+        <div style="background:  rgba(51, 51, 153, 0.5);">
+            <nav class="nav">
+                <div class="brand">
+                    <a style=" color: rgb(255, 165, 0); font-size: 2.5rem; text-decoration: none;" href="{% url 'blog:home' %}">FurryFriends</a>
+                </div>
+                <div class="nav-item">
+                    <a style="text-decoration: none; color: white;" href="{% url 'blog:home' %}">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a style="text-decoration: none; color: white;" href="#">About</a>
+                </div>
+                <div class="nav-item">
+                    <a style="text-decoration: none; color: white;" href="#">Sign In</a>
+                </div>
+                <div class="nav-item">
+                    <a style="text-decoration: none; color: white;" href="{% url 'users:register' %}">Register</a>
+                </div>
+            </nav>
+        </div>
+        <div>
+            {% block content %} style="list-style-type: none;" 
 
-        {% endblock content %}
+            {% endblock content %}
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
