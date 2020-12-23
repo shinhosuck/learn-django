@@ -7,7 +7,18 @@
 body {
     font-family: sans-serif;
 }
-
+.btn {
+    box-shadow: none!important;
+    outline: none!important;
+}
+.textinput {
+    box-shadow: none!important;
+    outline: none!important;
+}
+.emailinput {
+    box-shadow: none!important;
+    outline: none!important;
+}
 /* base.html */
 .bg-img {
     background: url("images/bg.png");

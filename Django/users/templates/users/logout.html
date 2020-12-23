@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+    <title>Sign Out</title>
+{% endblock title %}
+
+{% block content %}
+<style>
+    .logout-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .logout-col {
+        flex: 0 0 50%;
+        color: white;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    .logout-col a {
+        text-decoration: none;
+        color: rgb(255, 153, 0);
+    }
+</style>
+    <div class="logout-row">
+        <div class="logout-col">
+            <h2>You are signed out!</h2>
+            <a href="{% url 'users:login' %}">Sign in again</a>
+        </div>
+    </div>
+{% endblock content %}

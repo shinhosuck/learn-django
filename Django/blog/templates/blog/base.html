@@ -50,7 +50,10 @@
                     <a style="text-decoration: none; color: white;" href="#">About</a>
                 </div>
                 <div class="nav-item">
-                    <a style="text-decoration: none; color: white;" href="#">Sign In</a>
+                    <a style="text-decoration: none; color: white;" href="{% url 'users:login' %}">Sign In</a>
+                </div>
+                <div class="nav-item">
+                    <a style="text-decoration: none; color: white;" href="{% url 'users:logout' %}">Sing Out</a>
                 </div>
                 <div class="nav-item">
                     <a style="text-decoration: none; color: white;" href="{% url 'users:register' %}">Register</a>
