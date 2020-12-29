@@ -25,10 +25,9 @@ class Post(models.Model):
         ordering = ["-date_posted"]
 
 
-# class PostLike(models.Model):
-#     post_name = models.ForeignKey(Post, on_delete=models.CASCADE)
-#     likes = models.ManyToManyField(User)
+class PostLike(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
-#     def __str__(self):
-#         return self.likes.count()
-
+    def __str__(self):
+        return "User: {} likes {}".format(self.user.username, self.post.title)
