@@ -2,7 +2,7 @@ from django.urls import path
 from blog.views import (
                         index,
                         post_detail,
-                        post_like,
+                        post_like
                     )
 
 app_name = "blog"

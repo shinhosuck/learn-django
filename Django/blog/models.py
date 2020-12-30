@@ -9,6 +9,7 @@ class Post(models.Model):
     post_image = models.ImageField(upload_to="post_images")
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
+    likes = models.ManyToManyField(User, related_name="post_likes")
 
     def __str__(self):
         return self.title
@@ -24,10 +25,3 @@ class Post(models.Model):
     class Meta:
         ordering = ["-date_posted"]
 
-
-class PostLike(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
-
-    def __str__(self):
-        return "User: {} likes {}".format(self.user.username, self.post.title)
