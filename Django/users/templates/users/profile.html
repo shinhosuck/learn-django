@@ -1,0 +1,77 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Profile</title>
+{% endblock title %}
+
+{% block content %}
+<style>
+    .profile-row {
+        min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .profile-col {
+        flex: 0 0 30%;
+        color: white;
+        background: rgba(51, 51, 153, 0.8);
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    /* #div_id_username {
+        margin-top: 1rem;
+    } */
+    #error_1_id_username {
+        display: none;
+    }
+    #id_username {
+        border: none;
+        box-shadow: none;
+        background: white;
+    }
+    #hint_id_username {
+        display: none;
+    }
+    #error_1_id_email {
+        display: none;
+    }
+    #id_email {
+        border: none;
+        box-shadow: none;
+        background: white;
+    }
+    #div_id_email {
+        margin-top: 1rem;
+    }
+    #div_id_image {
+        margin-top: 1rem;
+    }
+    #id_image {
+        font-size: 0.8rem;
+    }
+</style>
+
+    <div class="profile-row">
+        <div class="profile-col">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            <h2>Profile Info</h2>
+            <img src="{{ user.profile.image.url }}" width="100px" height="100px" alt="profile image">
+            <p style="margin-bottom: 0rem;">User: {{ user.username }}</p>
+            <p style="margin-bottom: 0.5rem;">Email: {{ user.email }}</p>
+            <div>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                    <button class="btn btn-primary mt-3">Update</button>
+                    <a class="btn btn-secondary mt-3" type="button" href="{% url 'blog:home' %}">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
