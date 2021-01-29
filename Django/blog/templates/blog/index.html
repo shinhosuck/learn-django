@@ -5,96 +5,67 @@
 {% endblock title %}
 
 {% block content %}
-<style>
-    .post-latest {
-        flex: 0 0 90%; 
-        display: flex; 
-        flex-wrap: wrap; 
-        align-items: flex-end;
-        margin-bottom: 2rem; 
-        color: white; 
-        background: rgba(51, 51, 153,  0.8);
-        /* border-radius: 5px;  */
-        /* padding: 0.5rem; */
-    }
-    .post-latest:hover {
-        background: rgba(0, 0, 0, 0.7);
-    }
-    .top-stories {
-        margin: 1rem 1rem 0 0; 
-        flex: 0 0 10%; 
-        /* padding: 0.5rem; */
-        /* border-radius: 5px; */
-        background: rgba(51, 51, 153, 0.8); 
-        color: white;
-    }
-    .top-stories:hover {
-        background: rgba(0, 0, 0, 0.7);
-    }
-    .p-margin-bottom {
-        margin-bottom: 0 !important;
-    }
-</style>
-<div style="min-height: 100vh;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 0 5rem;">
-        <div style="flex: 0 0 100%; display: flex; flex-wrap: wrap; justify-content: center;
-            margin-top: 5rem;">
-            <h1 style= "flex: 0 0 100%; text-align: center; color: white; margin-bottom: 2rem;
-                    letter-spacing: 0.1rem;">
-                Latest Stories
-            </h1>
-            {% for post in latest_post %}
-            <div class="post-latest">
-                <img src="{{ post.post_image.url }}" width="300px" height="200px" alt="">
-                <div style="flex: 0 0 65%; margin: 0.5rem 0.5rem 0.5rem 1rem;">
-                    <h4 style="margin-bottom: 0.5rem; color: rgb(255, 153, 0)">{{ post.title}}</h4>
-                    <small style="font-size: 0.9rem;">
-                        <i class="fas fa-user" style="color: grey; font-size: 1.2rem;"></i>
-                        {{ post.author }}
-                    </small>
-                    <small style="margin-left: 0.5rem; font-size: 0.9rem;">
-                        <i class="fas fa-calendar" style="color: grey; font-size: 1.2rem;"></i>
-                        {{ post.date_posted|date:"N, d, Y"}}
-                    </small>
-                    <i class="fas fa-thumbs-up" style="color: grey; font-size: 1.2rem;"></i>
-                    <span style="display: inline-block; color: white;">{{ post.likes.count}}</span>
-                    <p class="p-margin-bottom" style=" margin-top: 0.5rem; font-size: 0.9rem;">
-                        {{ post.content|truncatechars:500 }}
-                        <a style="color:rgb(255, 153, 0);" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
-                    </p>
+    <div class="post-main-container">
+        <div style="flex: 0 0 70%">
+            <div class="post-latest-post-container">
+                <h1 class="post-latest-header-title">
+                    Latest Stories
+                </h1>
+                {% for post in latest_post %}
+                <div class="post-latest">
+                    <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
+                    <div class="post-latest-text-container">
+                        <h4 class="post-latest-post-title">{{ post.title}}</h4>
+                        <small class="post-latest-post-author">
+                            <i class="fas fa-user post-latest-user-icon"></i>
+                            {{ post.author }}
+                        </small>
+                        <small class="post-latest-date-posted">
+                            <i class="fas fa-calendar post-latest-calendar-icon"></i>
+                            {{ post.date_posted|date:"N, d, Y"}}
+                        </small>
+                        <i class="fas fa-thumbs-up post-latest-thumbs-up-icon"></i>
+                        <span class="post-latest-likes-count">{{ post.likes.count}}</span>
+                       
+                        <p class="post-latest-content">
+                            {{ post.content|truncatechars:200}}
+                            <a class="post-latest-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                        </p>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-        <div style="display: flex; margin-top:3rem; flex-wrap: wrap; flex: 0 0 90%; justify-content: center;">
-            <h1 style= "flex: 0 0 100%; text-align: center; color: white; margin-bottom: 1rem;
-                    letter-spacing: 0.1rem;">
+        <div class="top-stories-container">
+            <h1 class="top-stories-header">
                 Top Stories
             </h1>
             {% for post in posts%}
             <div class="top-stories">
-                <img style="width: 230px; height:130px" src="{{ post.post_image.url }}" alt="image coming soon">
-                <div style="margin: 0.5rem;">
-                    <small style="font-size: 0.7rem;">
-                        <i class="fas fa-user" style="color: grey; font-size: 1rem;"></i> {{ post.author }}
-                    </small>
-                    <small style="font-size: 0.7rem; margin-left: 0.5rem;">
-                        <i class="fas fa-calendar" style="color: grey; font-size: 1rem;"></i>
-                        {{ post.date_posted|date:"N, d, Y"}}
-                    </small>
-                    <i class="fas fa-thumbs-up" style="color: grey; font-size: 1rem;"></i>
-                    <span style="display: inline-block; color: white; font-size: 0.7rem;">{{ post.likes.count }}</span>
-                    <h4 style="margin-top: 0.5rem; color: rgb(255, 153, 0) ">{{ post.title|truncatechars:15 }}</h4>
-                    <p class="p-margin-bottom" style="margin-top: 0.5rem; font-size: 0.8rem;">
+                <div class="top-stories-text-container">
+                    <img class="top-stories-img" src="{{ post.post_image.url }}" alt="post image">
+                    <div style=" flex: 0 0 60%; margin-left: 0.5rem;">
+                        <h6 class="top-stories-post-title">{{ post.title|truncatechars:15 }}</h6>
+                        <small class="top-stories-author">
+                            <i class="fas fa-user top-stories-user-icon"></i> {{ post.author }}
+                        </small>
+                        <small class="top-stories-calendar">
+                            <i class="fas fa-calendar top-stories-calendar-icon"></i>
+                            {{ post.date_posted|date:"N, d, Y"}}
+                        </small>
+                        <i class="fas fa-thumbs-up top-stories-thumbs-up-icon"> </i>
+                        <span class="top-stories-post-like-count">{{ post.likes.count }}</span>
+                    </div>
+                    <p class="top-stories-post-content">
                         {{ post.content|truncatechars:100 }}
-                        <a style="color:rgb(255, 153, 0);" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                        <a class="top-stories-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
                     </p>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-</div>
+
 {% endblock content %}
     
         

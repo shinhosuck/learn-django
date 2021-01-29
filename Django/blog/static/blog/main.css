@@ -31,7 +31,7 @@ body {
     background-position: top;
 }
 .bg-color {
-    background: rgba(56, 36, 0, 0.2); 
+    background: rgba(56, 36, 0, 0.3); 
     min-height: 55vh;
 }
 .navbar-container {
@@ -118,76 +118,156 @@ body {
 /* END BASE.HTML */
 
 /* INDEX.HTML */
-.row-posts {
+.post-main-container {
     display: flex; 
     flex-wrap: wrap; 
-    min-height: 100vh; 
-    background: rgba(0, 0, 0, 0.7);
-    align-content: flex-start; 
-    justify-content: center;
+    justify-content: center; 
+    margin: 0 5rem;
+    padding: 2rem 0;
 }
-.col-latest {
+.post-latest-post-container {
+    flex: 0 0 70%; 
     display: flex; 
-    margin-top:1rem; 
-    flex: 0 0 80%; 
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: wrap; 
 }
-.title-latest {
-    flex: 0 0 100%; 
-    margin-top: 4rem;
+.post-latest-header-title {
+    flex: 0 0 90%; 
+    color: rgb(0, 0, 0); 
     margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
 }
-.title-latest > h2 {
-    color:white;
-}
-.container-items {
-    flex: 0 0 100%; 
-    color: white; 
+.post-latest {
+    flex: 0 0 90%; 
     display: flex; 
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     align-items: flex-end;
-    background:rgba(0, 0, 0, 0.6)
+    margin-bottom: 1rem; 
+    color: white; 
+    background:rgb(83, 54, 0);
 }
-.img-latest {
-    width: 300px;
-    height: 200px;
+.post-latest:hover {
+    background:rgb(51, 33, 0);
 }
-.container-text {
-    flex: 0 0 40%; 
-    margin-left: 1rem;
+.post-latest-img {
+    width:235px;
 }
-.small-author {
+.post-latest-text-container {
+    flex: 0 0 65%; 
+    color: rgb(221, 221, 221);
+    margin: 0.5rem 0.5rem 0.5rem 1rem;
+}
+.post-latest-post-title {
+    margin-bottom: 0.5rem; 
+    text-transform: capitalize;
+    color: orange;
+}
+.post-latest-post-author{
     font-size: 0.8rem;
 }
-.font-awesome-user {
-    color: grey; 
-    font-size: 1.2rem;
+.post-latest-user-icon {
+    color: rgb(128, 128, 128); 
+    font-size: 0.9rem;
 }
-.small-date-posted {
-    font-size: 0.8rem; 
+.post-latest-date-posted {
+    margin-left: 0.5rem; 
+    font-size: 0.8rem;
+}
+.post-latest-calendar-icon {
+    color: rgb(128, 128, 128); 
+    font-size: 0.9rem;
+}
+.post-latest-thumbs-up-icon {
     margin-left: 0.5rem;
+    color: rgb(128, 128, 128); 
+    font-size: 0.9rem;
 }
-.font-awesome-calendar {
-    color: grey; 
-    font-size: 1.2rem;
+.post-latest-likes-count {
+    font-size: 0.8rem;
 }
-.container-text > h3 {
-    margin-top: 1rem;
-}
-.container-text > p {
+.post-latest-content {
+    margin-bottom: 0 !important;
     margin-top: 0.5rem; 
     font-size: 0.9rem;
 }
-@media screen and (max-width: 1255px) {
-    .col-latest {
-        justify-content: flex-start;
-        flex: 0 0 30%; 
-    }
-    .container-text {
-        flex: 0 0 95%;
-        margin-top: 0.5rem;
-        margin-left: 0rem;
-    }
+.post-latest-read-more {
+    color:rgb(255, 153, 0);
+    font-size: 0.9rem;
+    text-decoration: none;
 }
-/* end index.html */
+.post-latest-read-more:hover {
+    color:rgb(255, 153, 0);
+}
+.top-stories-container {
+    display: flex; 
+    margin-top:4rem; 
+    flex-wrap: wrap; 
+    flex: 0 0 30%; 
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+.top-stories-header {
+    flex: 0 0 100%; 
+    text-align: center; 
+    color: rgb(0, 0, 0); 
+    letter-spacing: 0.1rem;
+}
+.top-stories {
+    margin-bottom: 1rem;
+    flex: 0 0 100%; 
+    background: rgb(51, 33, 0); 
+    color: rgb(221, 221, 221);
+}
+.top-stories:hover {
+    background: rgb(83, 54, 0);
+}
+.top-stories-img {
+    width: 120px; 
+}
+.top-stories-text-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin: 0.5rem;
+}
+.top-stories-thumbs-up-icon {
+    color: rgb(128, 128, 128); 
+    font-size: 0.7rem;
+}
+.top-stories-post-like-count {
+    font-size: 0.7rem;
+}
+.top-stories-author {
+    font-size: 0.7rem;
+}
+.top-stories-user-icon {
+    color: rgb(128, 128, 128); 
+    font-size: 0.7rem;
+}
+.top-stories-calendar {
+    font-size: 0.7rem; 
+}
+.top-stories-calendar-icon {
+    color: grey; 
+    font-size: 0.7rem;
+}
+.top-stories-post-title {
+    margin-bottom: 0;
+    text-transform: capitalize;
+    color: rgb(255, 153, 0) 
+}
+.top-stories-post-content {
+    flex: 0 0 100%;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0 !important;
+}
+.top-stories-read-more {
+    font-size: 0.7rem;
+    text-decoration: none;
+    color:rgb(255, 153, 0);
+}
+.top-stories-read-more:hover {
+    color:rgb(255, 153, 0);
+}
+/* END INDEX.HTML */
