@@ -6,16 +6,16 @@
 
 {% block content %}
     <div class="post-main-container">
-        <div style="flex: 0 0 70%">
+        <div style="flex: 0 0 70%;">
             <div class="post-latest-post-container">
-                <h1 class="post-latest-header-title">
+                <h2 class="post-latest-header-title">
                     Latest Stories
-                </h1>
+                </h2>
                 {% for post in latest_post %}
                 <div class="post-latest">
                     <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
                     <div class="post-latest-text-container">
-                        <h4 class="post-latest-post-title">{{ post.title}}</h4>
+                        <h5 class="post-latest-post-title">{{ post.title}}</h5>
                         <small class="post-latest-post-author">
                             <i class="fas fa-user post-latest-user-icon"></i>
                             {{ post.author }}
@@ -37,9 +37,9 @@
             </div>
         </div>
         <div class="top-stories-container">
-            <h1 class="top-stories-header">
+            <h2 class="top-stories-header">
                 Top Stories
-            </h1>
+            </h2>
             {% for post in posts%}
             <div class="top-stories">
                 <div class="top-stories-text-container">
