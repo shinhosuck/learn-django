@@ -21,7 +21,7 @@ def create_post(request):
 
 def index(request):
     posts = Post.objects.all()
-    latest_post = Post.objects.all()[0:4]
+    latest_post = Post.objects.all()
     context = {
         "posts": posts,
         "latest_post": latest_post

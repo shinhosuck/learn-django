@@ -119,12 +119,11 @@ body {
 
 /* INDEX.HTML */
 .post-main-container {
-    /* border: 1px solid green; */
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
     margin: 0 7rem;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 .post-latest-post-container {
     display: flex; 
@@ -133,15 +132,17 @@ body {
 .post-latest-header-title {
     flex: 0 0 95%; 
     color: rgb(0, 0, 0); 
-    /* margin-bottom: 1rem; */
-    letter-spacing: 0.1rem;
+}
+.post-latest-topic-title {
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
 .post-latest {
     flex: 0 0 95%; 
     display: flex; 
     flex-wrap: wrap; 
     align-items: flex-end;
-    margin-bottom: 1rem; 
+    border-bottom: 1px solid rgb(100, 65, 1);
     color: white; 
     background:rgb(83, 54, 0);
 }
@@ -149,15 +150,15 @@ body {
     background:rgb(51, 33, 0);
 }
 .post-latest-img {
-    width:200px;
+    width:150px;
 }
 .post-latest-text-container {
-    flex: 0 0 65%; 
+    flex:0 0 75%;
     color: rgb(221, 221, 221);
     margin: 0.5rem 0.5rem 0.5rem 1rem;
 }
 .post-latest-post-title {
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0; 
     text-transform: capitalize;
     color: orange;
 }
@@ -186,7 +187,6 @@ body {
 }
 .post-latest-content {
     margin-bottom: 0 !important;
-    margin-top: 0.5rem; 
     font-size: 0.9rem;
 }
 .post-latest-read-more {
@@ -200,19 +200,20 @@ body {
 .top-stories-container {
     display: flex; 
     flex-wrap: wrap; 
-    flex: 0 0 30%; 
+    flex: 0 0 25%; 
     justify-content: center;
     align-content: flex-start;
     align-items: flex-start;
+    margin-top: 5.5rem;
 }
 .top-stories-header {
+    text-align: center;
     flex: 0 0 100%; 
-    /* text-align: center;  */
-    color: rgb(0, 0, 0); 
-    letter-spacing: 0.1rem;
+    color: rgb(0, 0, 0);
+    /* border: 1px solid white; */
 }
 .top-stories {
-    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(100, 100, 100);
     flex: 0 0 100%; 
     background: rgb(51, 51, 51); 
     color: rgb(221, 221, 221);
@@ -231,6 +232,7 @@ body {
 }
 .top-stories-thumbs-up-icon {
     color: rgb(128, 128, 128); 
+    margin-left: 0.5rem;
     font-size: 0.7rem;
 }
 .top-stories-post-like-count {
@@ -245,6 +247,7 @@ body {
 }
 .top-stories-calendar {
     font-size: 0.7rem; 
+    display: block
 }
 .top-stories-calendar-icon {
     color: grey; 

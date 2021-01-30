@@ -8,6 +8,7 @@ class CreatePost(forms.ModelForm):
         model = Post 
         fields = [
             "title",
+            "topic",
             "post_image",
             "content"
         ]

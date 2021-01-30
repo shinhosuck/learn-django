@@ -11,40 +11,147 @@
                 <h2 class="post-latest-header-title">
                     Latest Stories
                 </h2>
+                <h4 class="post-latest-topic-title">Health</h4>
                 {% for post in latest_post %}
-                <div class="post-latest">
-                    <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
-                    <div class="post-latest-text-container">
-                        <h5 class="post-latest-post-title">{{ post.title}}</h5>
-                        <small class="post-latest-post-author">
-                            <i class="fas fa-user post-latest-user-icon"></i>
-                            {{ post.author }}
-                        </small>
-                        <small class="post-latest-date-posted">
-                            <i class="fas fa-calendar post-latest-calendar-icon"></i>
-                            {{ post.date_posted|date:"N, d, Y"}}
-                        </small>
-                        <i class="fas fa-thumbs-up post-latest-thumbs-up-icon"></i>
-                        <span class="post-latest-likes-count">{{ post.likes.count}}</span>
-                       
-                        <p class="post-latest-content">
-                            {{ post.content|truncatechars:200}}
-                            <a class="post-latest-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
-                        </p>
+                {% if post.topic.name == "Health" %}
+                    <div class="post-latest">
+                        <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
+                        <div class="post-latest-text-container">
+                            <h6 class="post-latest-post-title">{{ post.title}}</h6>
+                            <small class="post-latest-post-author">
+                                <i class="fas fa-user post-latest-user-icon"></i>
+                                {{ post.author }}
+                            </small>
+                            <small class="post-latest-date-posted">
+                                <i class="fas fa-calendar post-latest-calendar-icon"></i>
+                                {{ post.date_posted|date:"N, d, Y"}}
+                            </small>
+                            <i class="fas fa-thumbs-up post-latest-thumbs-up-icon"></i>
+                            <span class="post-latest-likes-count">{{ post.likes.count}}</span>
+                        
+                            <p class="post-latest-content">
+                                {{ post.content|truncatechars:130}}
+                                <a class="post-latest-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                            </p>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
+                {% endfor %}
+                <h4 class="post-latest-topic-title">Grooming</h4>
+                {% for post in latest_post %}
+                    {% if post.topic.name == "Grooming" %}
+                        <div class="post-latest">
+                            <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
+                            <div class="post-latest-text-container">
+                                <h6 class="post-latest-post-title">{{ post.title}}</h6>
+                                <small class="post-latest-post-author">
+                                    <i class="fas fa-user post-latest-user-icon"></i>
+                                    {{ post.author }}
+                                </small>
+                                <small class="post-latest-date-posted">
+                                    <i class="fas fa-calendar post-latest-calendar-icon"></i>
+                                    {{ post.date_posted|date:"N, d, Y"}}
+                                </small>
+                                <i class="fas fa-thumbs-up post-latest-thumbs-up-icon"></i>
+                                <span class="post-latest-likes-count">{{ post.likes.count}}</span>
+                            
+                                <p class="post-latest-content">
+                                    {{ post.content|truncatechars:130}}
+                                    <a class="post-latest-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <h4 class="post-latest-topic-title">Exercise</h4>
+                {% for post in latest_post %}
+                    {% if post.topic.name == "Exercise" %}
+                        <div class="post-latest">
+                            <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
+                            <div class="post-latest-text-container">
+                                <h6 class="post-latest-post-title">{{ post.title}}</h6>
+                                <small class="post-latest-post-author">
+                                    <i class="fas fa-user post-latest-user-icon"></i>
+                                    {{ post.author }}
+                                </small>
+                                <small class="post-latest-date-posted">
+                                    <i class="fas fa-calendar post-latest-calendar-icon"></i>
+                                    {{ post.date_posted|date:"N, d, Y"}}
+                                </small>
+                                <i class="fas fa-thumbs-up post-latest-thumbs-up-icon"></i>
+                                <span class="post-latest-likes-count">{{ post.likes.count}}</span>
+                            
+                                <p class="post-latest-content">
+                                    {{ post.content|truncatechars:130}}
+                                    <a class="post-latest-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <h4 class="post-latest-topic-title">Food</h4>
+                {% for post in latest_post %}
+                    {% if post.topic.name == "Food" %}
+                        <div class="post-latest">
+                            <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
+                            <div class="post-latest-text-container">
+                                <h6 class="post-latest-post-title">{{ post.title}}</h6>
+                                <small class="post-latest-post-author">
+                                    <i class="fas fa-user post-latest-user-icon"></i>
+                                    {{ post.author }}
+                                </small>
+                                <small class="post-latest-date-posted">
+                                    <i class="fas fa-calendar post-latest-calendar-icon"></i>
+                                    {{ post.date_posted|date:"N, d, Y"}}
+                                </small>
+                                <i class="fas fa-thumbs-up post-latest-thumbs-up-icon"></i>
+                                <span class="post-latest-likes-count">{{ post.likes.count}}</span>
+                            
+                                <p class="post-latest-content">
+                                    {{ post.content|truncatechars:130}}
+                                    <a class="post-latest-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <h4 class="post-latest-topic-title">Adoption</h4>
+                {% for post in latest_post %}
+                    {% if post.topic.name == "Adoption" %}
+                        <div class="post-latest">
+                            <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
+                            <div class="post-latest-text-container">
+                                <h6 class="post-latest-post-title">{{ post.title}}</h6>
+                                <small class="post-latest-post-author">
+                                    <i class="fas fa-user post-latest-user-icon"></i>
+                                    {{ post.author }}
+                                </small>
+                                <small class="post-latest-date-posted">
+                                    <i class="fas fa-calendar post-latest-calendar-icon"></i>
+                                    {{ post.date_posted|date:"N, d, Y"}}
+                                </small>
+                                <i class="fas fa-thumbs-up post-latest-thumbs-up-icon"></i>
+                                <span class="post-latest-likes-count">{{ post.likes.count}}</span>
+                            
+                                <p class="post-latest-content">
+                                    {{ post.content|truncatechars:130}}
+                                    <a class="post-latest-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
         <div class="top-stories-container">
-            <h2 class="top-stories-header">
+            <h3 class="top-stories-header">
                 Top Stories
-            </h2>
+            </h3>
             {% for post in posts%}
             <div class="top-stories">
                 <div class="top-stories-text-container">
                     <img class="top-stories-img" src="{{ post.post_image.url }}" alt="post image">
-                    <div style=" flex: 0 0 60%; margin-left: 0.5rem;">
+                    <div style="margin-left: 0.5rem;">
                         <h6 class="top-stories-post-title">{{ post.title|truncatechars:15 }}</h6>
                         <small class="top-stories-author">
                             <i class="fas fa-user top-stories-user-icon"></i> {{ post.author }}
@@ -53,12 +160,12 @@
                             <i class="fas fa-calendar top-stories-calendar-icon"></i>
                             {{ post.date_posted|date:"N, d, Y"}}
                         </small>
-                        <i class="fas fa-thumbs-up top-stories-thumbs-up-icon"> </i>
-                        <span class="top-stories-post-like-count">{{ post.likes.count }}</span>
                     </div>
                     <p class="top-stories-post-content">
-                        {{ post.content|truncatechars:100 }}
+                        {{ post.content|truncatechars:25 }}
                         <a class="top-stories-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                        <i class="fas fa-thumbs-up top-stories-thumbs-up-icon"> </i>
+                        <span class="top-stories-post-like-count">{{ post.likes.count }}</span>
                     </p>
                 </div>
             </div>
