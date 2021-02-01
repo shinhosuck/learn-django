@@ -18,7 +18,7 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="bg-img" >
             <div class="navbar-container">
                 <div class="brand-name">
                     <a class="brand-link" href="{% url 'blog:home' %}">PawPals</a>
@@ -39,16 +39,11 @@
                     {% endif %}
                 </ul>
             </div>
-            <div>
-                <img class="bg-img" src="{% static 'blog/images/bg.jpg' %}" alt="">
-            </div>
         </nav>
     </header>
     <main>
-        <div style="min-height: 100vh;">
         {% block content %} 
         {% endblock content %}
-        </div>
     </main>
     <!-- javascript -->
     <script src="{% static 'blog/main.js' %}"></script>
