@@ -6,6 +6,9 @@ from blog.forms import CreatePost
 
 
 
+def landing_page(request):
+    return render(request, "blog/landing_page.html", {})
+
 @login_required
 def create_post(request):
     if request.method == "POST":

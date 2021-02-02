@@ -19,7 +19,54 @@ body {
     box-shadow: none!important;
     outline: none!important;
 }
+/* LANDING_PAGE.HTML */
+.landing-page-bg {
+    min-height: 100vh;
+    background: url("images/lp.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.landing-page-nav-bg {
+    background: rgba(70, 32, 0, 0.8);
+}
+.landing-page-nav-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 0; 
+    height: 56px;
+}
+.landing-page-nav-item {
+    padding: 1rem; 
+    list-style-type: none; 
+}
+.landing-page-nav-item:hover { 
+    background: rgb(61, 45, 31)
+}
+.landing-page-nav-link {
+    text-decoration: none; 
+    color: white; 
+    font-size: 0.9rem;
+}
+.landing-page-nav-link:hover {
+    color: white; 
+}
+.landing-page-container {
+    margin: 0 6rem;
+    min-height: 100vh;
+    border: 1px solid orange;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.landing-page-text-container {
 
+    /* color: white; */
+}
+/* END LANDING_PAGE.HTML */
 /* BASE.HTML */
 /* nav-bar */
 .bg-img {

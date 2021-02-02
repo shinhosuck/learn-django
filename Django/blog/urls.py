@@ -1,5 +1,6 @@
 from django.urls import path
 from blog.views import (
+                        landing_page,
                         index,
                         post_detail,
                         post_like,
@@ -9,6 +10,7 @@ from blog.views import (
 app_name = "blog"
 
 urlpatterns = [
+    path("", landing_page, name="landing_page"),
     path("home/", index, name="home"),
     path("new/post/", create_post, name="create-post"),
     path("post/<int:pk>/detail/", post_detail, name="post-detail"),

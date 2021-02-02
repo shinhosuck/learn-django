@@ -18,6 +18,7 @@
 </head>
 <body>
     <header>
+        {% block navbar%}
         <nav class="bg-img" >
             <div class="navbar-container">
                 <div class="brand-name">
@@ -40,6 +41,7 @@
                 </ul>
             </div>
         </nav>
+        {% endblock navbar%}
     </header>
     <main>
         {% block content %} 
