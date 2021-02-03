@@ -9,6 +9,7 @@ from blog.models import Post, Topic
 def landing_page(request):
     return render(request, "blog/landing_page.html", {})
 
+
 @login_required
 def create_post(request):
     if request.method == "POST":
@@ -21,6 +22,7 @@ def create_post(request):
     else:
         form = CreatePost(request.POST)
     return render(request, "blog/create_post.html", {"form": form})
+
 
 def index(request):
     posts = []
@@ -37,6 +39,7 @@ def post_detail(request, pk):
     post = Post.objects.get(pk=pk)
     return render(request, "blog/post_detail.html", {"post": post})
 
+
 @login_required
 def post_like(request, pk):
     user = request.user
@@ -47,6 +50,7 @@ def post_like(request, pk):
     else:
         pass
     return redirect("blog:post-detail", pk=pk)
+
 
 def post_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
