@@ -8,13 +8,17 @@
     <div class="post-main-container">
         <div class="post-row">
             <div class="post-col">
-                <a class="post-header-container" href="#">
-                    <h2 class="post-topic-header">Health
-                        <small class="post-topic-small">click to see past posts</small>
-                    </h2>
-                </a>
-                {% for post in latest_post %}
-                {% if post.topic.name == "Health" %}
+                {% for topic in topics %}
+                    {% if topic.name == "Health" %}
+                    <a class="post-header-container" href="{% url 'blog:post-topic' topic.pk %}">
+                        <h2 class="post-topic-header">{{ topic.name }}
+                            <small class="post-topic-small">click to see past posts</small>
+                        </h2>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                {% for post in posts %}
+                    {% if post.topic.name == "Health" %}
                     <div class="post-latest">
                         <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
                         <div class="post-latest-text-container">
@@ -36,16 +40,20 @@
                             </p>
                         </div>
                     </div>
-                {% endif %}
+                    {% endif %}
                 {% endfor %}
             </div>
             <div class="post-col">
-                <a class="post-header-container" href="#">
-                    <h2 class="post-topic-header">Grooming
-                        <small class="post-topic-small">click to see past posts</small>
-                    </h2>
-                </a>
-                {% for post in latest_post %}
+                {% for topic in topics %}
+                    {% if topic.name == "Grooming" %}
+                    <a class="post-header-container" href="{% url 'blog:post-topic' topic.pk %}">
+                        <h2 class="post-topic-header">{{ topic.name }}
+                            <small class="post-topic-small">click to see past posts</small>
+                        </h2>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                {% for post in posts %}
                     {% if post.topic.name == "Grooming" %}
                         <div class="post-latest">
                             <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
@@ -72,12 +80,16 @@
                 {% endfor %}
             </div>
             <div class="post-col">
-                <a class="post-header-container" href="#">
-                    <h2 class="post-topic-header">Exercise
-                        <small class="post-topic-small">click to see past posts</small>
-                    </h2>
-                </a>
-                {% for post in latest_post %}
+                {% for topic in topics %}
+                    {% if topic.name == "Exercise" %}
+                    <a class="post-header-container" href="{% url 'blog:post-topic' topic.pk %}">
+                        <h2 class="post-topic-header">{{ topic.name }}
+                            <small class="post-topic-small">click to see past posts</small>
+                        </h2>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                {% for post in posts %}
                     {% if post.topic.name == "Exercise" %}
                         <div class="post-latest">
                             <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
@@ -104,12 +116,16 @@
                 {% endfor %}
             </div>
             <div class="post-col">
-                <a class="post-header-container" href="#">
-                    <h2 class="post-topic-header">Food
-                        <small class="post-topic-small">click to see past posts</small>
-                    </h2>
-                </a>
-                {% for post in latest_post %}
+                {% for topic in topics %}
+                    {% if topic.name == "Food" %}
+                    <a class="post-header-container" href="{% url 'blog:post-topic' topic.pk %}">
+                        <h2 class="post-topic-header">{{ topic.name }}
+                            <small class="post-topic-small">click to see past posts</small>
+                        </h2>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                {% for post in posts %}
                     {% if post.topic.name == "Food" %}
                         <div class="post-latest">
                             <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
@@ -135,12 +151,16 @@
                 {% endfor %}
             </div>
             <div class="post-col">
-                <a class="post-header-container" href="#">
-                    <h2 class="post-topic-header">Adoption
-                        <small class="post-topic-small">click to see past posts</small>
-                    </h2>
-                </a>
-                {% for post in latest_post %}
+                {% for topic in topics %}
+                    {% if topic.name == "Adoption" %}
+                    <a class="post-header-container" href="{% url 'blog:post-topic' topic.pk %}">
+                        <h2 class="post-topic-header">{{ topic.name }}
+                            <small class="post-topic-small">click to see past posts</small>
+                        </h2>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                {% for post in posts %}
                     {% if post.topic.name == "Adoption" %}
                         <div class="post-latest">
                             <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
@@ -168,12 +188,16 @@
             </div>
         </div>
         <div class="top-stories-container">
-            <a href="#" class="top-stories-link">
-                <h5 class="top-stories-header">
-                    Misc. Stories 
-                    <small class="top-stories-small-link">click for more</small>
-                </h5>
-            </a>
+            {% for topic in topics %}
+                {% if topic.name == "Misc." %}
+                <a href="{% url 'blog:post-topic' topic.pk %}" class="top-stories-link">
+                    <h5 class="top-stories-header">
+                        {{ topic.name }} Stories 
+                        <small class="top-stories-small-link">click for more</small>
+                    </h5>
+                </a>
+                {% endif %}
+            {% endfor %}
             <div class="top-stories">
                 {% for post in posts%}
                     {% if post.topic.name == "Misc." %}

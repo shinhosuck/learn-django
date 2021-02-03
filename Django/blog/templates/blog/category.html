@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+   {% for post in topic.post_set.all %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.topic.name }} {{ post.author }}</p>
+        <p>{{ post.date_posted}}</p>
+        <p>{{ post.content}}</p>
+   {% endfor %}
+{% endblock content %}

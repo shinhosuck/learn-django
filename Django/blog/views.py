@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from blog.models import Post
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from blog.forms import CreatePost
+from blog.models import Post, Topic
 
 
 
@@ -23,11 +23,13 @@ def create_post(request):
     return render(request, "blog/create_post.html", {"form": form})
 
 def index(request):
-    posts = Post.objects.all()
-    latest_post = Post.objects.all()
+    posts = []
+    topics = Topic.objects.all()
+    for topic in topics:
+        posts += topic.post_set.all()[0:4]
     context = {
         "posts": posts,
-        "latest_post": latest_post
+        "topics": topics
     }
     return render(request, "blog/index.html", context)
 
@@ -46,4 +48,6 @@ def post_like(request, pk):
         pass
     return redirect("blog:post-detail", pk=pk)
 
-
+def post_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+    return render(request, "blog/category.html", {"topic": topic})
