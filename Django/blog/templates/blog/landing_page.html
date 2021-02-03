@@ -21,13 +21,16 @@
                 <a class="landing-page-nav-link" href="{% url 'users:login' %}">Sign In</a>
             </li>
         </ul>
-    </nav>
-    <div style="background: rgba(70, 32, 0, 0.1);">
         <div class="landing-page-container">
             <div class="landing-page-text-container">
-                <h1>Best of friends</h1>
+                <div class="landing-page-header-container">
+                    <h1 class="landing-page-title">Welcome to PawPal</h1>
+                    <p class="landing-page-paragraph"> 
+                        A place where you can learn about pet welfare, and share your thoughts  and expertise on their well-being.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+    </nav>
 </div>
 {% endblock content %}
