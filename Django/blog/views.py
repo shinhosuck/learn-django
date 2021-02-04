@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib import messages
 from blog.forms import CreatePost
 from blog.models import Post, Topic
@@ -17,7 +18,8 @@ def create_post(request):
         form.instance.author = request.user
         if form.is_valid():
             post = form.save()
-            messages.success(request, "New post has been created by user{}".format(request.user))
+            print(post.pk)
+            messages.success(request, "New post has been created by user {}".format(request.user))
             return redirect("blog:post-detail", post.pk)
     else:
         form = CreatePost(request.POST)
@@ -55,3 +57,14 @@ def post_like(request, pk):
 def post_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
     return render(request, "blog/category.html", {"topic": topic})
+
+
+def my_posts(request, pk):
+    topics = Topic.objects.all()
+    user = get_object_or_404(User, pk=pk)
+    posts = user.post_set.all()
+    context = {
+        "posts": posts,
+        "topics": topics
+    }
+    return render(request, "blog/my_posts.html", context)

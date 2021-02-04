@@ -31,13 +31,15 @@
                     <ul class="links">
                         {% if user.is_authenticated %}
                             <li class="link"><a href="{% url 'blog:home' %}">Home</a></li>
-                            <li class="link"><a href="#">About</a></li>
+                            <li class="link"><a href="{% url 'blog:my_posts'  user.pk %}">My Posts</a></li>
                             <li class="link"><a href="{% url 'blog:create-post' %}">New Post</a></li>
                             <li class="link"><a href="{% url 'users:profile' %}">Profile</a></li>
                             <li class="link"><a href="{% url 'users:logout' %}">Sign Out</a></li>
                         {% else %}
+                            <li class="link"><a href="#">About</a></li>
                             <li class="link"><a href="{% url 'users:login' %}">Sign In</a></li>
                             <li class="link"><a href="{% url 'users:register' %}">Register</a></li>
+                            <li class="link"><a href="{% url 'blog:landing_page' %}">Exit Site</a></li>
                         {% endif %}
                     </ul>
                 </div>

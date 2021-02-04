@@ -6,6 +6,7 @@ from blog.views import (
                         post_like,
                         create_post,
                         post_topic,
+                        my_posts,
                     )
 
 app_name = "blog"
@@ -17,4 +18,5 @@ urlpatterns = [
     path("post/<int:pk>/detail/", post_detail, name="post-detail"),
     path("post/<int:pk>/like/", post_like, name="post-like"),
     path("topic/<int:pk>/", post_topic, name="post-topic"),
+    path("user/<int:pk>/posts/", my_posts, name="my_posts")
 ]
