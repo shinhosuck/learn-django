@@ -924,3 +924,189 @@ body {
     }
 }
 /* END POST_DETAIL.HTML */
+
+/* REGISTER.HTML */
+.register-form-row {
+    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.9),
+    rgba(70, 32, 0, 0.6), rgba(70, 32, 0, 0.3));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register-form-col {
+    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.1),
+    rgba(70, 32, 0, 0.7));
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    width: 400px;
+}
+.register-form-small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+.register-btn {
+    padding: 0.2rem 0.3rem;
+    border-radius: 5px;
+    background: rgb(240, 156, 0);
+    border: 1px solid  rgb(240, 156, 0);
+    color: rgb(255, 255, 255);
+    margin-top: 0.8rem;
+    outline: none !important;
+    transition: all 0.1s ease-in-out;
+}
+.register-btn:hover {
+    background: rgb(141, 92, 0);
+    border: 1px solid  rgb(141, 92, 0);
+}
+.register-btn-cancel {
+    padding: 0.2rem 0.3rem;
+    border-radius: 5px;
+    background: rgb(141, 141, 141);
+    border: 1px solid  rgb(141, 141, 141);
+    color: rgb(255, 255, 255);
+    margin-top: 0.5rem;
+    text-decoration: none;
+    outline: none !important;
+    transition: all 0.1s ease-in-out;
+}
+.register-btn-cancel:hover {
+    background: rgb(49, 49, 49);
+    border: 1px solid  rgb(49, 49, 49);
+    color: rgb(255, 255, 255);
+}
+.register-form-small a {
+    text-decoration: none;
+    color: rgb(255, 153, 0);
+    margin-left: 0.5rem;
+}
+@media screen and (max-width: 410px) {
+    .register-form-col {
+        width: 100%;
+        border-radius: 0;
+        padding: 0.5rem;
+    }
+}
+/* END REGISTER.HTML */
+
+/* SIGN_IN.HTML */
+.login-row{
+    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.9),
+    rgba(70, 32, 0, 0.6), rgba(70, 32, 0, 0.3));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-col{
+    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.1),
+    rgba(70, 32, 0, 0.7));
+    padding: 1rem 1.5rem;
+
+    width: 400px;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+.sign-in-btn {
+    padding: 0.2rem 0.3rem;
+    border-radius: 5px;
+    background: rgb(240, 156, 0);
+    border: 1px solid  rgb(240, 156, 0);
+    color: rgb(255, 255, 255);
+    margin-top: 0.8rem;
+    outline: none !important;
+    transition: all 0.1s ease-in-out;
+}
+.sign-in-btn:hover {
+    background: rgb(141, 92, 0);
+    border: 1px solid  rgb(141, 92, 0);
+}
+.sign-in-btn-cancel {
+    padding: 0.2rem 0.3rem;
+    border-radius: 5px;
+    background: rgb(141, 141, 141);
+    border: 1px solid  rgb(141, 141, 141);
+    color: rgb(255, 255, 255);
+    margin-top: 0.5rem;
+    text-decoration: none;
+    outline: none !important;
+    transition: all 0.1s ease-in-out;
+}
+.sign-in-btn-cancel:hover {
+    background: rgb(49, 49, 49);
+    border: 1px solid  rgb(49, 49, 49);
+    color: rgb(255, 255, 255);
+}
+.login-small {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+.login-a {
+    margin-left: 0.5rem !important;
+    text-decoration: none !important;
+    color: rgb(255, 153, 0) !important;
+}
+@media screen and (max-width: 400px) {
+    .login-col{
+        padding: 0.5rem;
+        width: 100%;
+        border-radius: 0;
+    }
+}
+/* END SIGN_IN.HTML */
+
+/* PROFILE.HTML */
+.profile-row {
+    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.9),
+    rgba(70, 32, 0, 0.6), rgba(70, 32, 0, 0.3));
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.profile-col {
+    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.1),
+    rgba(70, 32, 0, 0.7));
+    width: 400px;
+    color: rgb(255, 255, 255);
+    padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 20px;
+}
+.profile-update-btn {
+    padding: 0.2rem 0.3rem;
+    border-radius: 5px;
+    background: rgb(240, 156, 0);
+    border: 1px solid  rgb(240, 156, 0);
+    color: rgb(255, 255, 255);
+    margin-top: 0.8rem;
+    outline: none !important;
+    transition: all 0.1s ease-in-out;
+}
+.profile-update-btn:hover {
+    background: rgb(141, 92, 0);
+    border: 1px solid  rgb(141, 92, 0);
+}
+.profile-update-btn-cancel {
+    padding: 0.2rem 0.3rem;
+    border-radius: 5px;
+    background: rgb(141, 141, 141);
+    border: 1px solid  rgb(141, 141, 141);
+    color: rgb(255, 255, 255);
+    margin-top: 0.5rem;
+    text-decoration: none;
+    outline: none !important;
+    transition: all 0.1s ease-in-out;
+}
+.profile-update-btn-cancel:hover {
+    background: rgb(49, 49, 49);
+    border: 1px solid  rgb(49, 49, 49);
+    color: rgb(255, 255, 255);
+}
+/* END PROFILE.HTML */

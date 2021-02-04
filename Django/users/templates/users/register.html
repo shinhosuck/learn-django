@@ -5,44 +5,24 @@
     <title>Register</title>
 {% endblock title %}
 
+{% block navbar %}
+{% endblock navbar %}
+
 {% block content %}
 
 <style>
-    .register-form-row {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .register-form-col {
-        /* border: 1px solid blue; */
-        background: rgba(51, 51, 153, 0.8);
-        color: rgb(192, 192, 192);
-        padding: 1rem;
-        margin: 1rem;
-        flex: 0 0 30%;
-    }
-    .register-form-small {
-        display: block;
-        margin-top: 0.5rem;
-        font-size: 0.8rem;
-    }
-    .register-form-small a {
-        text-decoration: none;
-        color: rgb(255, 153, 0);
-        margin-left: 0.5rem;
-    }
+    
     #div_id_username {
-        margin-top: 1rem;
+        margin-top: 0.8rem;
     }
     #div_id_email {
-        margin-top: 1rem;
+        margin-top: 0.8rem;
     }
     #div_id_password1 {
         margin-top: 1rem;
     }
     #div_id_password2 {
-        margin-top: 1rem;
+        margin-top: 0.8rem;
     }
     #hint_id_username {
         display: none;
@@ -53,16 +33,29 @@
     #hint_id_password2 {
         display: none;
     }
+    #id_username {
+        border: none;
+    }
+    #id_email {
+        border: none;
+    }
+    #id_password1 {
+        border: none;
+    }
+    #id_password2 {
+        border: none;
+    }
 </style>
     <div class="register-form-row">
         <div class="register-form-col">
-            <h2>Register Form</h2>
+            <h2>Sign up</h2>
             <form action="#" method="Post">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn btn-primary btn-sm mt-3">Submit</button>
+                <button class="register-btn">Submit</button>
+                <a class="register-btn-cancel" type="button" href="{% url 'blog:home' %}">Cancel</a>
             </form>
-            <small class="register-form-small">Have an account?<a href="{% url 'users:login' %}">Sign In</a></small>
+            <small class="register-form-small">Have an account?<a href="{% url 'users:login' %}">Sign in</a></small>
         </div>
     </div>
 {% endblock content %}

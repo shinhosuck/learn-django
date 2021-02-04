@@ -2,28 +2,30 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    <title>Profile</title>
+    <title>{{ user.username }}'s Profile</title>
 {% endblock title %}
+
+{% block navbar %}
+{% endblock navbar %}
 
 {% block content %}
 <style>
-    .profile-row {
-        min-height: 100vh;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: center;
+    #div_id_username {
+        margin-top: 0.8rem;
     }
-    .profile-col {
-        flex: 0 0 30%;
-        color: white;
-        background: rgba(51, 51, 153, 0.8);
-        padding: 1rem;
-        margin-top: 1rem;
+    #div_id_email {
+        margin-top: 0.8rem !important;
     }
-    /* #div_id_username {
-        margin-top: 1rem;
-    } */
+    #div_id_image {
+        margin-top: 0.8rem !important;
+    }
+    #div_id_image div {
+        font-size: 0.8rem;
+    }
+    #div_id_image a {
+        color: rgb(180, 180, 180);
+        text-decoration: none;
+    }
     #error_1_id_username {
         display: none;
     }
@@ -43,33 +45,33 @@
         box-shadow: none;
         background: white;
     }
-    #div_id_email {
-        margin-top: 1rem;
-    }
-    #div_id_image {
-        margin-top: 1rem;
-    }
-    #id_image {
-        font-size: 0.8rem;
-    }
 </style>
 
     <div class="profile-row">
+        {% for message in messages %}
+            <div style="flex: 0 0 100%; text-align: center;
+            margin-bottom: 0 !important;">
+                <p style="color: rgb(219, 219, 219); font-size: 1.3rem; margin-bottom: 0 !important;
+                padding: 0.5rem 0">{{ message }}</p>
+            </div>
+        {% endfor %}
         <div class="profile-col">
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-            <h2>Profile Info</h2>
-            <img src="{{ user.profile.image.url }}" width="100px" height="100px" alt="profile image">
-            <p style="margin-bottom: 0rem;">User: {{ user.username }}</p>
-            <p style="margin-bottom: 0.5rem;">Email: {{ user.email }}</p>
+            <h3>{{ user.username }}'s profile</h3>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-end; 
+                border-bottom: 1px solid rgb(160, 160, 160); padding: 0.5rem 0;">
+                <img style="border-radius: 10px;" src="{{ user.profile.image.url }}" width="80px" alt="profile image">
+                <div style="margin-left: 0.5rem;">
+                    <small style="display: block;">User: {{ user.username }}</small>
+                    <small style="display: block;">Email: {{ user.email }}</small>
+                </div>
+            </div>
             <div>
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ u_form|crispy }}
                     {{ p_form|crispy }}
-                    <button class="btn btn-primary mt-3">Update</button>
-                    <a class="btn btn-secondary mt-3" type="button" href="{% url 'blog:home' %}">Cancel</a>
+                    <button class="profile-update-btn">Update</button>
+                    <a class="profile-update-btn-cancel" type="button" href="{% url 'blog:home' %}">Cancel</a>
                 </form>
             </div>
         </div>
