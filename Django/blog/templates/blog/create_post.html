@@ -6,27 +6,28 @@
     <title>Create Post</title>
 {% endblock title %}
 
+{% block navbar %}
+{% endblock navbar %}
 
 {% block content %}
 <style>
-    .form-row {
-        display: flex;
-        justify-content: center;
-    }
-    .form-col {
-        flex: 0 0 40%;
-        color: white;
-        padding: 1rem;
-        background: rgba(51, 51, 153, 0.8);;
-    }
     #div_id_title {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
     }
-    #div_id_post_image {
-        margin-top: 1rem;
+    #div_id_post_image label {
+        margin-bottom: 0;
     }
     #div_id_content {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
+    }
+    #div_id_content textarea{
+        height: 150px;
+    }
+    #div_id_topic {
+        margin-top: 0.5rem;
+    }
+    .requiredField {
+        margin-bottom: 0.5rem;
     }
     #error_1_id_title {
         display: none;
@@ -36,6 +37,9 @@
     }
     #error_1_id_content {
         display: none;
+    }
+    #error_1_id_topic {
+        margin-bottom: 0.5rem;
     }
     #id_title {
         border: none;
@@ -47,17 +51,30 @@
         box-shadow: none;
         background: rgb(255, 255, 255);
     }
+    #id_topic {
+        border: none;
+        box-shadow: none;
+    }
+    #id_post_image {
+        font-size: 0.8rem;
+    }
+    strong {
+        color: rgb(255, 184, 51);
+        font-size: 0.8rem;
+        font-family: sans-serif;
+    }
 </style>
-
-<div class="form-row">
-    <div class="form-col">
-        <h2>Create Post</h2>
-        <form method="POST" action="" value="post.pk"enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" name="post.id" class="btn btn-primary mt-3">Submit</button>
-            <a type="button" href="{% url 'blog:home' %}" class="btn btn-secondary mt-3">Cancel</a>
-        </form>
+<div class="create-post-bg-img">
+    <div class="form-row">
+        <div class="form-col">
+            <h2>Create Post</h2>
+            <form method="POST" action="" value="post.pk"enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" name="post.id" class="create-post-btn">Submit</button>
+                <a type="button" href="{% url 'blog:home' %}" class="create-post-btn-cancel">Cancel</a>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock content %}

@@ -4,28 +4,27 @@
     <title>Sign Out</title>
 {% endblock title %}
 
+{% block navbar %}
+{% endblock navbar%}
+
 {% block content %}
-<style>
-    .logout-row {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .logout-col {
-        flex: 0 0 50%;
-        color: white;
-        text-align: center;
-        margin-top: 2rem;
-    }
-    .logout-col a {
-        text-decoration: none;
-        color: rgb(255, 153, 0);
-    }
-</style>
+<div class="logout-bg-img">
     <div class="logout-row">
+        <ul class="landing-page-nav-container" style="flex: 0 0 100%">
+            <li class="landing-page-nav-item">
+                <a class="landing-page-nav-link" href="{% url 'blog:home' %}">Home</a>
+            </li>
+            <li class="landing-page-nav-item">
+                <a class="landing-page-nav-link" href="{% url 'users:login' %}">Sign In</a>
+            </li>
+            <li class="landing-page-nav-item">
+                <a class="landing-page-nav-link" href="{% url 'blog:landing_page' %}">Exit Site</a>
+            </li>
+        </ul>
         <div class="logout-col">
-            <h2>You are signed out!</h2>
+            <h3 class="signed-out">You are signed out!</h3>
             <a href="{% url 'users:login' %}">Sign in again</a>
         </div>
     </div>
+</div>
 {% endblock content %}

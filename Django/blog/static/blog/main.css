@@ -775,6 +775,7 @@ body {
 }
 .post-detail-message {
     color: green;
+    font-size: 1.3rem;
 }
 .post-detail-header {
     flex: 0 0 80%; 
@@ -802,6 +803,7 @@ body {
 }
 .post-detail-img {
     width: 200px;
+    height: 150px
 }
 .post-detail-text-container {
     margin-left: 0.5rem;
@@ -926,17 +928,25 @@ body {
 /* END POST_DETAIL.HTML */
 
 /* REGISTER.HTML */
+.register-bg-img{
+    min-height: 100vh;
+    background: url("images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .register-form-row {
-    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.9),
-    rgba(70, 32, 0, 0.6), rgba(70, 32, 0, 0.3));
+    background: linear-gradient(to bottom, rgba(70, 32, 0.8),
+    rgba(70, 32, 0, 0.4), rgba(70, 32, 0, 0.1));
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .register-form-col {
-    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.1),
-    rgba(70, 32, 0, 0.7));
+    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.5),
+    rgba(70, 32, 0, 0.8));
     color: rgb(255, 255, 255);
     border-radius: 20px;
     padding: 1rem 1.5rem;
@@ -992,17 +1002,38 @@ body {
 /* END REGISTER.HTML */
 
 /* SIGN_IN.HTML */
+.login-bg-img{
+    min-height: 100vh;
+    background: url("images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .login-row{
-    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.9),
-    rgba(70, 32, 0, 0.6), rgba(70, 32, 0, 0.3));
+    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.8),
+    rgba(70, 32, 0, 0.4), rgba(70, 32, 0, 0.1));
     min-height: 100vh;
     display: flex;
+    flex-wrap: wrap;
+    align-content: center;
     justify-content: center;
     align-items: center;
 }
+.login-message-container {
+    flex: 0 0 100%; 
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+.login-message-text {
+    color: rgb(219, 219, 219); 
+    font-size: 1.3rem; 
+    margin-bottom: 0 !important;
+    padding: 0.5rem 0
+}
 .login-col{
-    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.1),
-    rgba(70, 32, 0, 0.7));
+    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.5),
+    rgba(70, 32, 0, 0.8));
     padding: 1rem 1.5rem;
 
     width: 400px;
@@ -1059,9 +1090,17 @@ body {
 /* END SIGN_IN.HTML */
 
 /* PROFILE.HTML */
+.profile-bg-img{
+    min-height: 100vh;
+    background: url("images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .profile-row {
-    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.9),
-    rgba(70, 32, 0, 0.6), rgba(70, 32, 0, 0.3));
+    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.8),
+    rgba(70, 32, 0, 0.4), rgba(70, 32, 0, 0.1));
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
@@ -1069,15 +1108,47 @@ body {
     align-content: center;
     justify-content: center;
 }
+.profile-message-container {
+    flex: 0 0 100%; 
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+.profile-message-text {
+    color: rgb(219, 219, 219); 
+    font-size: 1.3rem; 
+    margin-bottom: 0 !important;
+    padding: 0.5rem 0
+}
 .profile-col {
-    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.1),
-    rgba(70, 32, 0, 0.7));
+    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.5),
+    rgba(70, 32, 0, 0.8));
     width: 400px;
     color: rgb(255, 255, 255);
     padding: 1.5rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-radius: 20px;
+}
+.profile-img-text {
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: flex-end; 
+    border-bottom: 1px solid rgb(160, 160, 160); 
+    padding: 0.5rem 0;
+}
+.profile-img {
+    border-radius: 10px;
+    width: 90px;
+    height: 67.5px;
+}
+.profile-small-container {
+    margin-left: 0.5rem;
+}
+.profile-username {
+    display: block;
+}
+.profile-email {
+    display: block;
 }
 .profile-update-btn {
     padding: 0.2rem 0.3rem;
@@ -1109,4 +1180,124 @@ body {
     border: 1px solid  rgb(49, 49, 49);
     color: rgb(255, 255, 255);
 }
+@media screen and (max-width: 400px) {
+    .profile-col {
+        width: 400px;
+        padding: 0.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 0;
+    }
+}
 /* END PROFILE.HTML */
+
+/* LOGOUT.HTML */
+.logout-bg-img{
+    min-height: 100vh;
+    background: url("images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.logout-row {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.8),
+    rgba(70, 32, 0, 0.4), rgba(70, 32, 0, 0.1));
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+.logout-col {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    margin-top: 12rem;
+    flex: 0 0 100%;
+}
+.signed-out {
+    flex: 0 0 100%
+}
+.logout-col a {
+    display: block;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 0.4rem 0;
+    background: rgba(255, 153, 0, 0.8);
+    font-size: 1.1rem;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+    width: 150px;
+}
+/* END LOGOUT.HTML */
+
+/* CREATE_POST.HTML */
+.create-post-bg-img {
+    min-height: 100vh;
+    background: url("images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.form-row {
+    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.8),
+    rgba(70, 32, 0, 0.4), rgba(70, 32, 0, 0.1));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-col {
+    width: 450px;
+    color: white;
+    padding: 1rem;
+    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.5),
+    rgba(70, 32, 0, 0.8));
+    padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 20px;
+}
+.create-post-btn {
+    padding: 0.2rem 0.3rem;
+    border-radius: 5px;
+    background: rgb(240, 156, 0);
+    border: 1px solid  rgb(240, 156, 0);
+    color: rgb(255, 255, 255);
+    margin-top: 0.8rem;
+    outline: none !important;
+    transition: all 0.1s ease-in-out;
+}
+.create-post-btn:hover {
+    background: rgb(141, 92, 0);
+    border: 1px solid  rgb(141, 92, 0);
+}
+.create-post-btn-cancel {
+    padding: 0.2rem 0.3rem;
+    border-radius: 5px;
+    background: rgb(141, 141, 141);
+    border: 1px solid  rgb(141, 141, 141);
+    color: rgb(255, 255, 255);
+    margin-top: 0.5rem;
+    text-decoration: none;
+    outline: none !important;
+    transition: all 0.1s ease-in-out;
+}
+.create-post-btn-cancel:hover {
+    background: rgb(49, 49, 49);
+    border: 1px solid  rgb(49, 49, 49);
+    color: rgb(255, 255, 255);
+}
+@media screen and (max-width: 450px) {
+    .form-col {
+        padding: 0.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 0;
+    }
+}
+/* END CREATE_POST.HTML */
