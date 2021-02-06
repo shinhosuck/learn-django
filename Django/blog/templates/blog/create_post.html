@@ -68,7 +68,7 @@
     <div class="form-row">
         <div class="form-col">
             <h2>Create Post</h2>
-            <form method="POST" action="" value="post.pk"enctype="multipart/form-data">
+            <form method="POST" action="#" value="post.pk"enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <button type="submit" name="post.id" class="create-post-btn">Submit</button>

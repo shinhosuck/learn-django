@@ -46,12 +46,17 @@
                 <div class="profile-container">
                     {% if user.is_authenticated %}
                         <div class="profile-column">
-                            <img  class="profile-main-img" src="{{ user.profile.image.url }}" alt="profile image">
-                            <div class="profile-small-container hide-div">
+                            <div class="profile-small-container">
                                 <small class="profile-user-name">User: {{ user.username}}</small>
                                 <small class="profile-user-name">Joined: {{ user.date_joined|date:"N, d, Y"}}</small>
                                 <small class="profile-user-email">Email: {{ user.email}}</small>
                             </div>
+                            <img  class="profile-main-img" src="{{ user.profile.image.url }}" alt="profile image">
+                            <!-- <div class="profile-small-container">
+                                <small class="profile-user-name">User: {{ user.username}}</small>
+                                <small class="profile-user-name">Joined: {{ user.date_joined|date:"N, d, Y"}}</small>
+                                <small class="profile-user-email">Email: {{ user.email}}</small>
+                            </div> -->
                         </div>
                     {% endif %}
                 </div>

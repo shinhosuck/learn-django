@@ -18,7 +18,6 @@ def create_post(request):
         form.instance.author = request.user
         if form.is_valid():
             post = form.save()
-            print(post.pk)
             messages.success(request, "New post has been created by user {}".format(request.user))
             return redirect("blog:post-detail", post.pk)
     else:
