@@ -30,9 +30,16 @@
                 </div>
             </div>
             <div class="post-detail-content-container">
+                {% if post in user.post_set.all %}
+                <p class="post-detail-content-paragraph">
+                    {{ post.content }}
+                    <a href="{% url 'blog:update-post' post.pk %}">Update post</a>
+                </p>
+                {% else %}
                 <p class="post-detail-content-paragraph">
                     {{ post.content }}
                 </p>
+                {% endif %}
             </div>
         </div>
     </div>

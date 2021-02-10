@@ -12,3 +12,14 @@ class CreatePost(forms.ModelForm):
             "post_image",
             "content"
         ]
+
+class UpdatePost(forms.ModelForm):
+    
+    class Meta:
+        model = Post
+        fields = [
+            "title",
+            "topic",
+            "post_image",
+            "content"
+        ]
