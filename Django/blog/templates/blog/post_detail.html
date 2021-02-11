@@ -33,7 +33,7 @@
                 {% if post in user.post_set.all %}
                 <p class="post-detail-content-paragraph">
                     {{ post.content }}
-                    <a href="{% url 'blog:update-post' post.pk %}">Update post</a>
+                    <a class="post-detail-update-post" href="{% url 'blog:update-post' post.pk %}">Update post</a>
                 </p>
                 {% else %}
                 <p class="post-detail-content-paragraph">
