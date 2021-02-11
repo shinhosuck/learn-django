@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -77,11 +78,23 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         # 'NAME': BASE_DIR / 'db.sqlite3',
+#         'NAME': str(os.path.join(BASE_DIR, "db.sqlite3"))
+#     }
+# }
+
+# FOR HEROKU DATABASE
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3"))
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "dfd482irm3en6s",
+        "USER": "wtplnxfwdofbzl",
+        "PASSWORD": "338d8adad270791d38777df7ffafdf05c17637052745474e8c23e03eb51f4cbb",
+        "HOST": "ec2-52-54-174-5.compute-1.amazonaws.com",
+        "PORT": "5432"
     }
 }
 
@@ -123,6 +136,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIR = [os.path.join(BASE_DIR, "static")]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"

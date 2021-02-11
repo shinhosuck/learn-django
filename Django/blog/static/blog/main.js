@@ -19,14 +19,3 @@ window.addEventListener("resize", function(){
     }
 })
 
-// const profileMainImg = document.querySelector(".profile-main-img");
-// const profileSmallContainer = document.querySelector(".profile-small-container");
-
-// profileMainImg.addEventListener("mouseover", function(){
-//         profileSmallContainer.classList.remove("hide-div")
-//         profileSmallContainer.classList.add("show-div")
-// })
-// profileMainImg.addEventListener("mouseleave", function(){
-//         profileSmallContainer.classList.remove("show-div")
-//         profileSmallContainer.classList.add("hide-div")
-// })

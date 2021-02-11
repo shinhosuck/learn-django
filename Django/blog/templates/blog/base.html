@@ -47,9 +47,9 @@
                     {% if user.is_authenticated %}
                         <div class="profile-column">
                             <div class="profile-small-container">
-                                <small class="profile-user-name">User: {{ user.username}}</small>
-                                <small class="profile-user-name">Joined: {{ user.date_joined|date:"N, d, Y"}}</small>
-                                <small class="profile-user-email">Email: {{ user.email}}</small>
+                                <small class="profile-user-name">User: {{ user.username }}</small>
+                                <small class="profile-user-name">Joined: {{ user.date_joined|date:"N, d, Y" }}</small>
+                                <small class="profile-user-email">Email: {{ user.email }}</small>
                             </div>
                             <img  class="profile-main-img" src="{{ user.profile.image.url }}" alt="profile image">
                         </div>
