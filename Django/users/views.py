@@ -3,6 +3,12 @@ from users.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 
+
+def authenticated_users(request):
+    all_users = User.objects.all()
+    print(all_users)
+    return render(request, "blog/index.html", {"all_users": all_users})
+
 def user_register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
